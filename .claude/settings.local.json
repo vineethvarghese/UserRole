@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn test 2>&1)",
+      "Bash(mvn clean test 2>&1 | grep -E \"Running com\\\\.|Tests run:|BUILD|FAILURE!|Caused by:\" | head -50)",
+      "Bash(mvn clean test 2>&1 | grep -A 10 \"RoleApiTest.createRole_withValidRequest_returns201.*FAILURE\" | head -15)",
+      "Bash(mvn clean test -Dtest=RoleApiTest 2>&1 | tail -60)",
+      "Bash(mvn clean test 2>&1 | grep -E \"Tests run:|BUILD|FAILURE!\\\\|ERROR!\" | tail -25)"
+    ]
+  }
+}
